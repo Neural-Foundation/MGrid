@@ -1,0 +1,45 @@
+
+
+                     P-GRID LICENSE TERMS AND CONDITIONS
+                           Version 2, September 2008
+
+ Copyright (C) 2003-2008 Distributed Information Systems Laboratory (LSIR)
+                    Swiss Federal Institute of Technology Lausanne (EPFL)
+                    CH-1015 Lausanne, Switzerland
+ 
+
+The program "P-Grid/Gridella" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+IN ADDITION TO THE TERMS AND CONDITIONS OF THE GNU LESSER GENERAL PUBLIC
+LICENSE, YOU AGREE WITH THE FOLLOWING TERMS AND CONDITIONS:
+
+P-Grid is a distributed indexing system for indexing and searching
+non-copyrighted content. The distribution of copyrighted data is not
+the intended application area of P-Grid. The distribution of P-Grid
+does not authorize you in any way to  infringe the copyright or other
+rights of third parties. As a condition of the use of P-Grid, you
+agree that you must not use this program to infringe the intellectual
+property or other rights of others; the unauthorized reproduction,
+distribution, modification, public display, communication to the
+public or public performance of copyrighted works is an infringement
+of copyright. It is your responsibility to ensure that you obtain all
+consents, authorizations and clearances in any data owned or
+controlled by third parties that you transmit, access or communicate
+to others using the P-Grid program.
+
+YOU WILL BE ENTIRELY AND SOLELY RESPONSIBLE FOR YOUR CONDUCT USING THE
+P-GRID PROGRAM AND FOR ENSURING THAT YOU COMPLY WITH ALL APPLICABLE
+LAWS, INCLUDING BUT NOT LIMITED TO COPYRIGHT LAWS. IN NO CASE SHALL
+THE COPYRIGHT HOLDER (EPFL) BE LIABLE FOR ANY DAMAGE CAUSED BY THE USE
+OF THE P-GRID PROGRAM.

@@ -1,0 +1,58 @@
+This is the README file for P-Grid 3.2.
+Copyright 2008, P-Grid team.
+http://www.p-grid.org/
+
+By using P-Grid, you agree to the licensing terms stated on the P-Grid download page at http://www.p-grid.org/.
+
+
+About P-Grid
+============
+
+P-Grid is a truly decentralized structured P2P system for distributed information management beyond mere file-sharing which does not require central coordination or knowledge and it is based purely on randomized algorithms and local interactions.
+
+
+Running the system
+==================
+
+P-Grid is developed using the Apache Ant (http://ant.apache.org/) tool. Ant is a platform-independent scripting tool that lets you construct your build scripts in much the same fashion as the "make" tool in C or C++. It is highly recommended to use the build.xml file provided with P-Grid to compile and run the project. The following documentation will assume that ant is installed.
+
+
+Compilation
+-----------
+
+To compile P-Grid, open a terminal and run "ant" at the root of P-Grid project directory. This will compile all classes and create P-Grid jar file "p-grid.jar" in the project root directory.
+
+
+Starting P-Grid
+---------------
+
+After the compilation, you should have a jar file in the P-Grid root directory. This can be either started by p-grid.bat (Windows) or p-grid.sh (Linux).
+
+P-Grid also comes with a simple HelloWorld example which can be started by running helloWorld.bat respectively helloWorld.sh.
+
+
+How to setup your own P-Grid network
+------------------------------------
+
+As there is no global P-Grid network (so far) you can connect to, you have to setup your own network to play around with P-Grid. The easiest way is to run P-Grid multiple times on the same computer. Therefore, you have to create a small P-Grid farm for example in your P-Grid directory with the following directory structure:
+/P-Grid
+  /classes
+  /farm
+    /00
+    /01
+    /02
+    ...
+  /docs
+  /lib
+  /licenses
+  /resources
+  /src
+
+Having created the jar file, which should be located in the /P-Grid directory and assuming the above directory structure, you should be able to start your first instance by typing:
+
+> cd P-Grid/farm/00
+> java -jar ../../p-grid.jar
+
+You can also specify the port each instance uses by the command line argument -port. The default port is 1805. After starting the first instance (on the default port) you should have a PGrid.ini file in your user profile directory "C:\Documents and Settings\USER_NAME\" respectively "/home/USER_NAME/". You should change the property "BootstrapHosts" to "localhost:1805" if you have started the first instance at the default port, otherwise replace 1805 by your choice. Now you can start all other instances which will use the PGrid.ini file to connect to the first instance acting as bootstrap peer for the others.
+
+If you want to setup a P-Grid network on various computers you have to change all PGrid.ini files of all computers and add a corresponding bootstrap peer which is reachable by all peers.

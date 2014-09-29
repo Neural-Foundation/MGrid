@@ -1,0 +1,124 @@
+Version 3.0.0
+-------------
+
+- Change default java VM in build.xml. We are using java 5
+- [Fix] Remove a null pointer exception that could appear when a greater level goes through a check point before some smaller level in ExchangeStatistics.
+- [Fix] NullPointerException appearing when P-Grid shutdown should be fixed now.
+- [Features] Re-introduced queries in Load balancing tester
+- [Update] Added the latest version of HSQLDB. v1.8.0.4
+- [Fix] Remove some useless log entries
+- [Fix] Correct a reading problem that could happen in some rare occasion where a header line is longer then 255 bytes.
+- [Fix] The connection manager has been cleaned.
+- [Feature] get rid of the <closing/> message in the connection layer.
+- [Fix] Memory leak in the readline method.
+- [Fix] Zombies threads removed.
+- [Cleaning] Re-implement reader thread dynamic behavior
+- [Fix] ReplicationBalancer were loosing data entries
+- [Feature] ExactQueryTester is now easier to use in local setting
+- [Feature] It is now possible to insert data entry to the storage manager without sending them to the distributor object
+- [Fix] Resolved a concurrent access on data table signature problem.
+- [Feature] Add a global lock to the Exchanger to block it during some operation (load balancing, ...)
+- [Fix] P-Grid was not working correctly if a routing table and a data table were available at starting time.
+- [Feature] Add a new property to activate the dynamic join. Before that both the dynamic join and the dynamic load balancing where activated by the ReplicateBalancer property.
+- [Fix] No message will be processed until the node has join the network.
+- [Feature] Add a new property to activate the dynamic join. Before that both the dynamic join and the dynamic load balancing where activated by the ReplicateBalancer property.
+- [Feature] Add a new property to enable or disable the exchange rate control.
+- [Feature]All messages goes through the Router now and they are decoded (unzipped) only if the current peer is responsible for this message, otherwise it is just forwarded following a routing strategy. This save some CPU since we can now avoid the decompression, XML parsing, the message to XML transformation and finally the re-compression!
+- [Feature] The PGridReader has been heavily modify to remove the _BIG_ switch that was used to decode messages. Now,  all messages are defined in an XML file. This file defines for a given message, its type, its XML element name, the class implementing the message and optionally a class handling this message on remote host. This is an option since you don't want to define such an handler for replies. Here follows an example:
+  ---------------------------
+  <Mapping Type="14"
+			 MessageName="Query"
+			 MessageClass="pgrid.network.protocol.QueryMessage"
+			 RemoteHandlerClass="pgrid.core.search.RemoteSearchHandler"
+			 Description="Query"/>
+  --------------------------
+- [Feature] As a side benefice of this now implementation, P-Grid is able to route message it doesn't know about... but this functionality is limited since the responsible peer has to know the message type to decode it.
+- [Feature] A new manager has been created to parse the message mapping file and to create message on demands through the use of reflection (this technology is lovely).
+- [Feature] There is now a clear separation between the message and the routing it can use. We can therefor easily send a message to the replicas ring without extra code! It's also an open door for the famous and long awaited unstructured network since all messages goes through 1 method in the router.
+- [Feature] Currently implemented routing strategies are: Greedy, Shower, Random Walk along a path, send to replicas and topologic (mainly used for lookup peer, but could be useful for your left routing strategy ;). To send a message directly to a known peer, the router is bypassed and the connection manager is used directly.
+- [Misc] P-Grid architecture has been restructured in order to have a clear path from the connection manager to the router to the message manager.
+- [Feature] Added PGridMessageImp, which is an abstract implementation of PGridMessage that free users from implementing most of the cumbersome part of our message class. 
+- [Feature] SearchManager and all other manager have been rewritten to make them easy to understand. No more factories and object in object pointing to some other strategy. All is [probably] easy to understand.
+- [Info] The message manager is now on top of the Router and serves as a helping class for users. For example, if you want to route a message to a range of keys, you can call *route(KeyRange key, PGridMessage msg, RouterListener routerListener, MessageWaiter waiter)* which will automatically call the router for you with the correct strategy.
+- [Fix] HelloWorld demo now run as expected.
+- [Feature] Broadcast routing strategy is now available
+- [Fix] The message header has been fixed
+- [Fix] Attribute in the route element were out of order
+- [Feature] Acknowledgment has been re-introduced
+- [Feature] Message creation has been changed to reduce the amount of replication needed by P-Grid. All messages should be clonable.
+- [Fix] Message were not clonable.
+- [Info] HelloWorld program produce the expected result.
+- [Fix] Acknowledgment message cycle removed
+- [Fix] Dead code remove in Message manager
+- [Fix] Bug fix in RandomWalk routing strategy
+- [Re-factoring] Removed the release folder from SVN
+- [Fix] Invite parameter was not correctly considered. The whole exchange process was inverted.
+- [Feature] The maintenance manager process 1 task per second now. It was 1 per 10s before.
+- [Cleaning] Removed useless references from the message header.
+- [Fix] GUIDGenerator was producing in rare circumstance a ArrayOutOfBoundException.
+- [Fix] The whole Routing table synchronization system has been "re-done". A routing table can have multiple reader but has an exclusive writer.
+- [Feature] Fidget exchange delays have been fine tuned.
+- [Feature] The exchanger takes exchange invitation in reverse order.
+- [Feature] The exchanger replies to exchange messages in priority.
+- [Fix] The exchanger was loosing data entries, therefor the construction of P-Grid was wrong.
+- [Fix] DBView was returning a set of non-unique Data entries.
+- [Fix] Some permission have been changed in XMLPGridHost
+- [Feature] Added unstructured network capability to P-Grid.
+- [Feature] Added an unstructured network for routing purposes. Every routing strategy can decide to fallback into the unstructured network if it is of any use.
+- [Feature] If the network is not structured, the greedy and shower strategies will use the unstructured network to perform the query.
+- [Feature] When a message is not routable, the remote handler is informed
+- [Fix] Changed the synchronization technique in the connection manager
+- [Feature] Router has now a time out period to send a message.
+- [Fix] When restarting an experiment, data entries were not read correctly from the data base
+- [Fix] some queries were counted twice in the exact query tester
+- [Feature] a timer has been add to the router to end some queries that take too much time.
+- [Feature] Added a thread pooling system in the router with 10 threads
+- [Feature] Remove the worker for the Router and the MessageManager
+- [Fix] Removed some memory leaks
+- [Feature] Added a super peer property
+- [Add] Files-gridella is used to simulate a gridella network.
+- [Feature] Add router statistics (routerStat.dat)
+- [Feature] Re-introduced query statistic (queryStat.dat)
+- [Misc] Some cosmetic change in the P-Grid protocol proposed by Roman
+- [Add] Files-gridella.dat for tests with gridella
+- [Fix] Fixed a NullPointerException in the PGridServer.java file
+- [FIX] Fine tuned timeout delay in Router
+- [Misc] Add more explicit timeout message in Connector class
+- [Fix] Case 3a and b where missing data resulting in an inconsistent decision
+- [Fix] replication estimate was not transfered in exchange messages
+- [Feature] When a peer with an incomplete path does an exchange with a peer with a long path, it will adopt the whole path, not only the first bit.
+- [Feature] Introduced a fidget exchange phase for client to ensure randomness of fidget list
+- [Feature] All replicas are kept in the routing table
+- [Feature] Path extension is accepted only if the peer knows a sufficient number of replicas. This avoid the spreading effect.
+- [Feature] Exchanger now acknowledge ExchangeReply message.
+- [Fix] A synchronization bug has been removed from the handle exchange code where an exchange could be missed under certain circumstances.
+- [Feature] There is now 1 XML parser per PGridReader thread.
+- [Fix] Timing in Exchange process has been modified to minimize the risk of seeing a peer waiting for nothing.
+- [Fix] clone method was not performing a deep copy (shallow copy)
+- [Fix] Some host paths were reset (partially or totally) during construction phase. The latest path were determined based on host timestamp which is a non globally unique unit. Timestamp has been replace by revision number. This fix resolves the following bugs:
+ - Exception throwed [PGrid Warning: Illegal Argument in RoutingTable.setLevels() for level...]
+ - Co-existing prefix related peers
+- [Feature] PGridHost has now a revision number that replace the old timestamp. This revision number is incremented each time its path changes.
+- [Fix] XMLPGridHost: timestamp/revision was decoded twice, once in mRevision and once as a property.
+- [Feature] PGridHost is now aware of being the localhost or not. 
+- [Fix] PGridHost revision is thread safe
+- [Feature] Exchanger now acknowledge ExchangeReply message.
+- [Feature] Path extension is accepted only if the peer knows a sufficient number of replicas. This avoid the spreading effect.
+- [Feature] The broadcast algorithm was too simple (no list of sent host). Modified this algo to include this.
+- [Fix] Corrected minor version in tools.xml and changelog.txt
+- [Feature] GUID can now be generated based on an application provided seed
+- [Feature] Test and debug mode are now a property of P-Grid and not hardcoded anymore
+- [Misc] Revert changes in exchange algorithms. When in prefix relation (3) peer will adopt a single bit
+- [Feature] Added a caching system for xml data entries. If data entry currently in parsing mode already exists it will not be double parsed.
+- [Feature] Added a -t option to gridella tester to activate the test mode.
+- [Fix] local host was not added in the already sent list of the Broadcast routing strategy.
+
+Version 2.0a
+------------
+
+ - not available
+
+Version 1.0
+-----------
+
+ - Initial version

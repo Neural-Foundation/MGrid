@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="resources"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/hadoop/lib/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/hadoop/lib/jackson-core-asl-1.8.8.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/hadoop/lib/jackson-mapper-asl-1.8.8.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/core-0.2.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/getopt.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/guava-11.0.2.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/h2.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/hadoop-core-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/hbase-0.94.10.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/NBench.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/org.restlet.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/protobuf-java-2.4.0a.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/proxool-0.9.1.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/proxool-cglib.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/slf4j-api-1.4.3.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/slf4j-log4j12-1.4.3.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/zookeeper-3.4.5.jar"/>
+	<classpathentry kind="lib" path="conf"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/workspace/MGrid2D/lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/home/hduser/vol01/hadoop/lib/commons-io-2.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

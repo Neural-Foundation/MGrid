@@ -1,0 +1,36 @@
+Version 3.0
+-----------
+
+ - Introduction of an entire new routing layer
+  - Support for user-defined messages defined by XML-file based mappings to implementations
+  - Support for additional user-defined routing strategies
+  - Separation of routing strategies and message types
+  - Messages are only decompressed entirely if necessary, e.g., at the peer responsible for a query
+ - Introduction of two-tier SuperPeer architecture
+ - Introduction of an unstructured network as fallback network if the P-Grid overlay breaks temporally
+ - Improvements for peers joining an existing P-Grid network
+ - Improvements in dynamic load balancing
+
+
+Version 2.0a
+------------
+
+ - Major revision of the code
+  - Decoupling from the Gridella project
+  - Providing well-defined interfaces to work with P-Grid (p2p.*)
+  - Restructuring and simplifying of the P-Grid code
+  - Introduction of a new generic router
+  - Rewrote from scratch query processing (much more generic and clean)
+  - Drastically reduced number of used threads
+ - Support for peer lookup
+ - P-Grid now uses the SAX parser included from JDK 1.4
+ - Introduction of customizing P-Grid
+ - Improved network construction algorithm
+ - Uses of a database as local persistent storage
+ - Better load balancing among participating peers
+ - Support for range queries
+
+Version 1.0
+-----------
+
+ - Initial version

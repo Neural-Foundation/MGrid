@@ -1,0 +1,5 @@
+1) public abstract class IndexFactory
+
+		from : public abstract Index createIndex(P2P p2p);
+		to : public abstract Index createIndex(P2P p2p, String HostName);
+		why : the hostname will be used to create unique local hbase tables on each user
