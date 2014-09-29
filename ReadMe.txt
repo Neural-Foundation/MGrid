@@ -7,4 +7,3 @@ This code has been tested on:
 1) Centos 6.4
 2) Java 7
 3) Hadoop 1.2.1 and HBase 0.94.10
-4) Minimum Storage 1 Gb
